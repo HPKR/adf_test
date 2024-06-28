@@ -8,12 +8,6 @@
 		"dl_ablob_covid_sa_connectionString": {
 			"value": ""
 		},
-		"dl_adls_covid_dl_accountKey": {
-			"value": ""
-		},
-		"dl_adls_covid_dl_properties_typeProperties_url": {
-			"value": "https://storageaccount17dl.dfs.core.windows.net/"
-		},
 		"containerUri": {
 			"value": ""
 		},
