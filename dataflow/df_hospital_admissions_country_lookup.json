@@ -20,7 +20,14 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "joinHospitalAdmissionsWithCountryLookup"
+				},
+				{
+					"name": "selectRequiredColumns"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          country as string,",
@@ -43,7 +50,28 @@
 				"     ),",
 				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourceCountryLookup"
+				"     ignoreNoFilesFound: false) ~> sourceCountryLookup",
+				"sourceHospitalAdmissions, sourceCountryLookup join(upper(sourceHospitalAdmissions@country) == upper(sourceCountryLookup@country),",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinHospitalAdmissionsWithCountryLookup",
+				"joinHospitalAdmissionsWithCountryLookup select(mapColumn(",
+				"          country = sourceHospitalAdmissions@country,",
+				"          indicator,",
+				"          date,",
+				"          year_week,",
+				"          value,",
+				"          source,",
+				"          url,",
+				"          country = sourceCountryLookup@country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          continent,",
+				"          population",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectRequiredColumns"
 			]
 		}
 	}
