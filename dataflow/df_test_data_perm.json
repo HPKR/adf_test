@@ -15,7 +15,15 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: false,",
+				"source(output(",
+				"          id as string,",
+				"          monToFri as boolean,",
+				"          sunToThu as boolean,",
+				"          monToSun as boolean,",
+				"          offPremisesAuth as boolean,",
+				"          offHoursAuth as boolean",
+				"     ),",
+				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourceTestDataPerm"
 			]
