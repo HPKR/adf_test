@@ -1,0 +1,32 @@
+{
+	"name": "df_test_data_perm",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_test_data_perm",
+						"type": "DatasetReference"
+					},
+					"name": "sourceTestDataPerm"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          id as string,",
+				"          firstname as string,",
+				"          lastname as string,",
+				"          department as string,",
+				"          salary as string,",
+				"          country as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceTestDataPerm"
+			]
+		}
+	}
+}
