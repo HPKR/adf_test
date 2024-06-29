@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "testDataPermTs"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          id as string,",
@@ -25,7 +29,9 @@
 				"     ),",
 				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourceTestDataPerm"
+				"     ignoreNoFilesFound: false) ~> sourceTestDataPerm",
+				"sourceTestDataPerm derive(insertedTimestamp = currentUTC(),",
+				"          surrogateKey = uuid()) ~> testDataPermTs"
 			]
 		}
 	}
