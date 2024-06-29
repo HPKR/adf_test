@@ -19,31 +19,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "id",
-				"type": "String"
-			},
-			{
-				"name": "firstname",
-				"type": "String"
-			},
-			{
-				"name": "lastname",
-				"type": "String"
-			},
-			{
-				"name": "department",
-				"type": "String"
-			},
-			{
-				"name": "salary",
-				"type": "String"
-			},
-			{
-				"name": "country",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
