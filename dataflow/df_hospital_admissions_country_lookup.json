@@ -19,7 +19,11 @@
 					"name": "sourceCountryLookup"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sinkHospitalAdmissionsCountryLookup"
+				}
+			],
 			"transformations": [
 				{
 					"name": "joinHospitalAdmissionsWithCountryLookup"
@@ -71,7 +75,14 @@
 				"          population",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> selectRequiredColumns"
+				"     skipDuplicateMapOutputs: true) ~> selectRequiredColumns",
+				"selectRequiredColumns sink(validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     store: 'cache',",
+				"     format: 'inline',",
+				"     output: false,",
+				"     saveOrder: 1) ~> sinkHospitalAdmissionsCountryLookup"
 			]
 		}
 	}
