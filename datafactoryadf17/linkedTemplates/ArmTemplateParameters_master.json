@@ -5,8 +5,26 @@
 		"factoryName": {
 			"value": "datafactoryadf17"
 		},
-		"dl_ablob_covid_sa_connectionString": {
+		"ls_adf_test_data_perm_accountKey": {
 			"value": ""
+		},
+		"ls_adls_hospital_admissions_csv_accountKey": {
+			"value": ""
+		},
+		"ls_adls_sink_service_accountKey": {
+			"value": ""
+		},
+		"ls_errors_connectionString": {
+			"value": ""
+		},
+		"ls_adf_test_data_perm_properties_typeProperties_url": {
+			"value": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"ls_adls_hospital_admissions_csv_properties_typeProperties_url": {
+			"value": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"ls_adls_sink_service_properties_typeProperties_url": {
+			"value": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""

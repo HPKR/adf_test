@@ -7,9 +7,33 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "datafactoryadf17"
 		},
-		"dl_ablob_covid_sa_connectionString": {
+		"ls_adf_test_data_perm_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'dl_ablob_covid_sa'"
+			"metadata": "Secure string for 'accountKey' of 'ls_adf_test_data_perm'"
+		},
+		"ls_adls_hospital_admissions_csv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_hospital_admissions_csv'"
+		},
+		"ls_adls_sink_service_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_sink_service'"
+		},
+		"ls_errors_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_errors'"
+		},
+		"ls_adf_test_data_perm_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"ls_adls_hospital_admissions_csv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"ls_adls_sink_service_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -38,8 +62,26 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"dl_ablob_covid_sa_connectionString": {
-						"value": "[parameters('dl_ablob_covid_sa_connectionString')]"
+					"ls_adf_test_data_perm_accountKey": {
+						"value": "[parameters('ls_adf_test_data_perm_accountKey')]"
+					},
+					"ls_adls_hospital_admissions_csv_accountKey": {
+						"value": "[parameters('ls_adls_hospital_admissions_csv_accountKey')]"
+					},
+					"ls_adls_sink_service_accountKey": {
+						"value": "[parameters('ls_adls_sink_service_accountKey')]"
+					},
+					"ls_errors_connectionString": {
+						"value": "[parameters('ls_errors_connectionString')]"
+					},
+					"ls_adf_test_data_perm_properties_typeProperties_url": {
+						"value": "[parameters('ls_adf_test_data_perm_properties_typeProperties_url')]"
+					},
+					"ls_adls_hospital_admissions_csv_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_hospital_admissions_csv_properties_typeProperties_url')]"
+					},
+					"ls_adls_sink_service_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_sink_service_properties_typeProperties_url')]"
 					}
 				}
 			},

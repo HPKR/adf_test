@@ -7,9 +7,33 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "datafactoryadf17"
 		},
-		"dl_ablob_covid_sa_connectionString": {
+		"ls_adf_test_data_perm_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'dl_ablob_covid_sa'"
+			"metadata": "Secure string for 'accountKey' of 'ls_adf_test_data_perm'"
+		},
+		"ls_adls_hospital_admissions_csv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_hospital_admissions_csv'"
+		},
+		"ls_adls_sink_service_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_sink_service'"
+		},
+		"ls_errors_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_errors'"
+		},
+		"ls_adf_test_data_perm_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"ls_adls_hospital_admissions_csv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"ls_adls_sink_service_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -17,17 +41,419 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/dl_ablob_covid_sa')]",
+			"name": "[concat(parameters('factoryName'), '/ls_adf_test_data_perm')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_adf_test_data_perm_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_adf_test_data_perm_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_adls_hospital_admissions_csv')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_adls_hospital_admissions_csv_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_adls_hospital_admissions_csv_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_adls_sink_service')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_adls_sink_service_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_adls_sink_service_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_errors')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('dl_ablob_covid_sa_connectionString')]"
+					"connectionString": "[parameters('ls_errors_connectionString')]"
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_country_lookup_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_hospital_admissions_csv",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "country_lookup.csv",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "country",
+						"type": "String"
+					},
+					{
+						"name": "country_code_2_digit",
+						"type": "String"
+					},
+					{
+						"name": "country_code_3_digit",
+						"type": "String"
+					},
+					{
+						"name": "continent",
+						"type": "String"
+					},
+					{
+						"name": "population",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_hospital_admissions_csv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_hospital_admissions_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_hospital_admissions_csv",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "hospital_admissions.csv",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "country",
+						"type": "String"
+					},
+					{
+						"name": "indicator",
+						"type": "String"
+					},
+					{
+						"name": "date",
+						"type": "String"
+					},
+					{
+						"name": "year_week",
+						"type": "String"
+					},
+					{
+						"name": "value",
+						"type": "String"
+					},
+					{
+						"name": "source",
+						"type": "String"
+					},
+					{
+						"name": "url",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_hospital_admissions_csv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_test_data_perm')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adf_test_data_perm",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "test_data_perm.csv",
+						"folderPath": "adfTestData",
+						"fileSystem": "raw"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adf_test_data_perm')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_hospital_admissions_country_lookup')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "ds_hospital_admissions_csv",
+								"type": "DatasetReference"
+							},
+							"name": "sourceHospitalAdmissions"
+						},
+						{
+							"dataset": {
+								"referenceName": "ds_country_lookup_csv",
+								"type": "DatasetReference"
+							},
+							"name": "sourceCountryLookup"
+						}
+					],
+					"sinks": [
+						{
+							"name": "sinkHospitalAdmissionsCountryLookup"
+						}
+					],
+					"transformations": [
+						{
+							"name": "joinHospitalAdmissionsWithCountryLookup"
+						},
+						{
+							"name": "selectRequiredColumns"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          country as string,",
+						"          indicator as string,",
+						"          date as date,",
+						"          year_week as string,",
+						"          value as integer,",
+						"          source as string,",
+						"          url as string",
+						"     ),",
+						"     allowSchemaDrift: false,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> sourceHospitalAdmissions",
+						"source(output(",
+						"          country as string,",
+						"          country_code_2_digit as string,",
+						"          country_code_3_digit as string,",
+						"          continent as string,",
+						"          population as integer",
+						"     ),",
+						"     allowSchemaDrift: false,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> sourceCountryLookup",
+						"sourceHospitalAdmissions, sourceCountryLookup join(upper(sourceHospitalAdmissions@country) == upper(sourceCountryLookup@country),",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> joinHospitalAdmissionsWithCountryLookup",
+						"joinHospitalAdmissionsWithCountryLookup select(mapColumn(",
+						"          country = sourceHospitalAdmissions@country,",
+						"          indicator,",
+						"          date,",
+						"          year_week,",
+						"          value,",
+						"          source,",
+						"          url,",
+						"          country = sourceCountryLookup@country,",
+						"          country_code_2_digit,",
+						"          country_code_3_digit,",
+						"          continent,",
+						"          population",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> selectRequiredColumns",
+						"selectRequiredColumns sink(validateSchema: false,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     store: 'cache',",
+						"     format: 'inline',",
+						"     output: false,",
+						"     saveOrder: 1) ~> sinkHospitalAdmissionsCountryLookup"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ds_hospital_admissions_csv')]",
+				"[concat(variables('factoryId'), '/datasets/ds_country_lookup_csv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/df_test_data_perm')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "ds_test_data_perm",
+								"type": "DatasetReference"
+							},
+							"name": "sourceTestDataPerm"
+						}
+					],
+					"sinks": [
+						{
+							"linkedService": {
+								"referenceName": "ls_adls_sink_service",
+								"type": "LinkedServiceReference"
+							},
+							"name": "sinkTestDataPermTMinus1",
+							"rejectedDataLinkedService": {
+								"referenceName": "ls_errors",
+								"type": "LinkedServiceReference"
+							}
+						}
+					],
+					"transformations": [
+						{
+							"name": "testDataPermTs"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          id as string,",
+						"          monToFri as boolean,",
+						"          sunToThu as boolean,",
+						"          monToSun as boolean,",
+						"          offPremisesAuth as boolean,",
+						"          offHoursAuth as boolean",
+						"     ),",
+						"     allowSchemaDrift: false,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> sourceTestDataPerm",
+						"sourceTestDataPerm derive(insertedTimestamp = currentUTC(),",
+						"          surrogateKey = uuid()) ~> testDataPermTs",
+						"testDataPermTs sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     format: 'delimited',",
+						"     fileSystem: 'processed',",
+						"     folderPath: 'adfTestData',",
+						"     columnDelimiter: ',',",
+						"     escapeChar: '\\\\',",
+						"     quoteChar: '\\\"',",
+						"     columnNamesAsHeader: false,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     saveOrder: 1,",
+						"     outputAssertFailedRows: true,",
+						"     assertFailure_container: 'errors',",
+						"     assertFailure_folderPath: 'errors') ~> sinkTestDataPermTMinus1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ds_test_data_perm')]",
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_sink_service')]",
+				"[concat(variables('factoryId'), '/linkedServices/ls_errors')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_test_data_perm_move')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "df_test_data_perm",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.00:10:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_test_data_perm",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"sourceTestDataPerm": {},
+									"sinkTestDataPermTMinus1": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/df_test_data_perm')]"
+			]
 		}
 	]
 }
