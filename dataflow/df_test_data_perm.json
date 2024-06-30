@@ -1,0 +1,68 @@
+{
+	"name": "df_test_data_perm",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_test_data_perm",
+						"type": "DatasetReference"
+					},
+					"name": "sourceTestDataPerm"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "ls_adls_sink_service",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sinkTestDataPermTMinus1",
+					"rejectedDataLinkedService": {
+						"referenceName": "ls_errors",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "testDataPermTs"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as string,",
+				"          monToFri as boolean,",
+				"          sunToThu as boolean,",
+				"          monToSun as boolean,",
+				"          offPremisesAuth as boolean,",
+				"          offHoursAuth as boolean",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceTestDataPerm",
+				"sourceTestDataPerm derive(insertedTimestamp = currentUTC(),",
+				"          surrogateKey = uuid()) ~> testDataPermTs",
+				"testDataPermTs sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'delimited',",
+				"     fileSystem: 'processed',",
+				"     folderPath: 'adfTestData',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
+				"     outputAssertFailedRows: true,",
+				"     assertFailure_container: 'errors',",
+				"     assertFailure_folderPath: 'errors') ~> sinkTestDataPermTMinus1"
+			]
+		}
+	}
+}

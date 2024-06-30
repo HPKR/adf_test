@@ -1,0 +1,78 @@
+{
+	"name": "df_hospital_admissions_country_lookup",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_hospital_admissions_csv",
+						"type": "DatasetReference"
+					},
+					"name": "sourceHospitalAdmissions"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_country_lookup_csv",
+						"type": "DatasetReference"
+					},
+					"name": "sourceCountryLookup"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "joinHospitalAdmissionsWithCountryLookup"
+				},
+				{
+					"name": "selectRequiredColumns"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          country as string,",
+				"          indicator as string,",
+				"          date as date,",
+				"          year_week as string,",
+				"          value as integer,",
+				"          source as string,",
+				"          url as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceHospitalAdmissions",
+				"source(output(",
+				"          country as string,",
+				"          country_code_2_digit as string,",
+				"          country_code_3_digit as string,",
+				"          continent as string,",
+				"          population as integer",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceCountryLookup",
+				"sourceHospitalAdmissions, sourceCountryLookup join(upper(sourceHospitalAdmissions@country) == upper(sourceCountryLookup@country),",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinHospitalAdmissionsWithCountryLookup",
+				"joinHospitalAdmissionsWithCountryLookup select(mapColumn(",
+				"          country = sourceHospitalAdmissions@country,",
+				"          indicator,",
+				"          date,",
+				"          year_week,",
+				"          value,",
+				"          source,",
+				"          url,",
+				"          country = sourceCountryLookup@country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          continent,",
+				"          population",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectRequiredColumns"
+			]
+		}
+	}
+}
