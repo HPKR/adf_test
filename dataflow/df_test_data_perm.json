@@ -58,6 +58,7 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
+				"     header: (['id','monToFri','sunToThu','monToSun','offPremisesAuth','offHoursAuth','insertedTimestamp','surrogateKey']),",
 				"     saveOrder: 1,",
 				"     outputAssertFailedRows: true,",
 				"     assertFailure_container: 'errors',",
