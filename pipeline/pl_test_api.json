@@ -1,21 +1,6 @@
 {
 	"name": "pl_test_api",
 	"properties": {
-		"activities": [
-			{
-				"name": "Azure Function1",
-				"type": "AzureFunctionActivity",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.00:10:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": []
-			}
-		],
 		"annotations": []
 	}
 }
