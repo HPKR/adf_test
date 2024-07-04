@@ -1,0 +1,64 @@
+{
+	"name": "df_api_csv",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "apiCsv",
+						"type": "DatasetReference"
+					},
+					"name": "sourceAPI"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sinkAPICSV"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceAPI",
+				"sourceAPI foldDown(unroll(),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          id as string,",
+				"          url as string,",
+				"          name as string,",
+				"          type as string,",
+				"          language as string,",
+				"          status as string,",
+				"          runtime as string,",
+				"          averageRuntime as string,",
+				"          premiered as string,",
+				"          ended as string,",
+				"          officialSite as string,",
+				"          weight as string,",
+				"          webChannel as string,",
+				"          dvdCountry as string,",
+				"          summary as string,",
+				"          updated as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkAPICSV"
+			]
+		}
+	}
+}

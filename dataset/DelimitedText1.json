@@ -1,0 +1,88 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsApiCsv",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "csv",
+				"fileSystem": "synapse"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "url",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "type",
+				"type": "String"
+			},
+			{
+				"name": "language",
+				"type": "String"
+			},
+			{
+				"name": "status",
+				"type": "String"
+			},
+			{
+				"name": "runtime",
+				"type": "String"
+			},
+			{
+				"name": "averageRuntime",
+				"type": "String"
+			},
+			{
+				"name": "premiered",
+				"type": "String"
+			},
+			{
+				"name": "ended",
+				"type": "String"
+			},
+			{
+				"name": "officialSite",
+				"type": "String"
+			},
+			{
+				"name": "weight",
+				"type": "String"
+			},
+			{
+				"name": "webChannel",
+				"type": "String"
+			},
+			{
+				"name": "dvdCountry",
+				"type": "String"
+			},
+			{
+				"name": "summary",
+				"type": "String"
+			},
+			{
+				"name": "updated",
+				"type": "String"
+			}
+		]
+	}
+}
