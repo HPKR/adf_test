@@ -23,6 +23,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_errors'"
 		},
+		"adlsApiCsv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsApiCsv'"
+		},
+		"apiRestTesting_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones&embed=episodes"
+		},
 		"ls_adf_test_data_perm_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
@@ -32,6 +40,10 @@
 			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
 		"ls_adls_sink_service_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"adlsApiCsv_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		}
@@ -63,6 +75,56 @@
 							"headers": {},
 							"url": "https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones&embed=episodes"
 						}
+					},
+					{
+						"name": "CopyRESTDataToSink",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.00:10:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".csv"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "RestResource1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "apiCsv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {
@@ -70,7 +132,10 @@
 				},
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/RestResource1')]",
+				"[concat(variables('factoryId'), '/datasets/apiCsv')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pl_test_data_perm_move')]",
@@ -116,6 +181,24 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/df_test_data_perm')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "apiRestTesting",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/apiRestTesting')]"
 			]
 		},
 		{
@@ -252,6 +335,21 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_adf_test_data_perm')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/apiRestTesting')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "[parameters('apiRestTesting_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ls_adf_test_data_perm')]",
@@ -485,6 +583,51 @@
 				"[concat(variables('factoryId'), '/datasets/ds_test_data_perm')]",
 				"[concat(variables('factoryId'), '/linkedServices/ls_adls_sink_service')]",
 				"[concat(variables('factoryId'), '/linkedServices/ls_errors')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adlsApiCsv')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('adlsApiCsv_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('adlsApiCsv_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/apiCsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adlsApiCsv",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "csv",
+						"fileSystem": "synapse"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/adlsApiCsv')]"
 			]
 		}
 	]

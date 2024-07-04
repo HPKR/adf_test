@@ -17,6 +17,12 @@
 		"ls_errors_connectionString": {
 			"value": ""
 		},
+		"adlsApiCsv_accountKey": {
+			"value": ""
+		},
+		"apiRestTesting_properties_typeProperties_url": {
+			"value": "https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones&embed=episodes"
+		},
 		"ls_adf_test_data_perm_properties_typeProperties_url": {
 			"value": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
@@ -24,6 +30,9 @@
 			"value": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
 		"ls_adls_sink_service_properties_typeProperties_url": {
+			"value": "https://storageaccount17dl.dfs.core.windows.net/"
+		},
+		"adlsApiCsv_properties_typeProperties_url": {
 			"value": "https://storageaccount17dl.dfs.core.windows.net/"
 		}
 	}
