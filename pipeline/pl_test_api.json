@@ -45,7 +45,7 @@
 									"path": "$['id']"
 								},
 								"sink": {
-									"name": "id"
+									"ordinal": 1
 								}
 							},
 							{
@@ -53,7 +53,7 @@
 									"path": "$['url']"
 								},
 								"sink": {
-									"name": "url"
+									"ordinal": 2
 								}
 							},
 							{
@@ -61,7 +61,7 @@
 									"path": "$['name']"
 								},
 								"sink": {
-									"name": "name"
+									"ordinal": 3
 								}
 							},
 							{
@@ -69,7 +69,7 @@
 									"path": "$['type']"
 								},
 								"sink": {
-									"name": "type"
+									"ordinal": 4
 								}
 							},
 							{
@@ -77,7 +77,7 @@
 									"path": "$['language']"
 								},
 								"sink": {
-									"name": "language"
+									"ordinal": 5
 								}
 							},
 							{
@@ -85,7 +85,7 @@
 									"path": "$['genres'][0]"
 								},
 								"sink": {
-									"name": "genres']["
+									"ordinal": 6
 								}
 							},
 							{
@@ -93,7 +93,7 @@
 									"path": "$['status']"
 								},
 								"sink": {
-									"name": "status"
+									"ordinal": 7
 								}
 							},
 							{
@@ -101,7 +101,7 @@
 									"path": "$['runtime']"
 								},
 								"sink": {
-									"name": "runtime"
+									"ordinal": 8
 								}
 							},
 							{
@@ -109,7 +109,7 @@
 									"path": "$['averageRuntime']"
 								},
 								"sink": {
-									"name": "averageRuntime"
+									"ordinal": 9
 								}
 							},
 							{
@@ -117,7 +117,7 @@
 									"path": "$['premiered']"
 								},
 								"sink": {
-									"name": "premiered"
+									"ordinal": 10
 								}
 							},
 							{
@@ -125,7 +125,7 @@
 									"path": "$['ended']"
 								},
 								"sink": {
-									"name": "ended"
+									"ordinal": 11
 								}
 							},
 							{
@@ -133,7 +133,7 @@
 									"path": "$['officialSite']"
 								},
 								"sink": {
-									"name": "officialSite"
+									"ordinal": 12
 								}
 							},
 							{
@@ -141,7 +141,7 @@
 									"path": "$['schedule']['time']"
 								},
 								"sink": {
-									"name": "time"
+									"ordinal": 13
 								}
 							},
 							{
@@ -149,7 +149,7 @@
 									"path": "$['schedule']['days'][0]"
 								},
 								"sink": {
-									"name": "schedule_days']["
+									"ordinal": 14
 								}
 							},
 							{
@@ -157,7 +157,7 @@
 									"path": "$['rating']['average']"
 								},
 								"sink": {
-									"name": "rating_average"
+									"ordinal": 15
 								}
 							},
 							{
@@ -165,7 +165,7 @@
 									"path": "$['weight']"
 								},
 								"sink": {
-									"name": "weight"
+									"ordinal": 16
 								}
 							},
 							{
@@ -173,7 +173,7 @@
 									"path": "$['network']['id']"
 								},
 								"sink": {
-									"name": "network_id"
+									"ordinal": 17
 								}
 							},
 							{
@@ -181,7 +181,7 @@
 									"path": "$['network']['name']"
 								},
 								"sink": {
-									"name": "network_name"
+									"ordinal": 18
 								}
 							},
 							{
@@ -189,7 +189,7 @@
 									"path": "$['network']['country']['name']"
 								},
 								"sink": {
-									"name": "network_country_name"
+									"ordinal": 19
 								}
 							},
 							{
@@ -197,7 +197,7 @@
 									"path": "$['network']['country']['code']"
 								},
 								"sink": {
-									"name": "code"
+									"ordinal": 20
 								}
 							},
 							{
@@ -205,7 +205,7 @@
 									"path": "$['network']['country']['timezone']"
 								},
 								"sink": {
-									"name": "timezone"
+									"ordinal": 21
 								}
 							},
 							{
@@ -213,7 +213,7 @@
 									"path": "$['network']['officialSite']"
 								},
 								"sink": {
-									"name": "network_officialSite"
+									"ordinal": 22
 								}
 							},
 							{
@@ -221,7 +221,7 @@
 									"path": "$['webChannel']"
 								},
 								"sink": {
-									"name": "webChannel"
+									"ordinal": 23
 								}
 							},
 							{
@@ -229,7 +229,7 @@
 									"path": "$['dvdCountry']"
 								},
 								"sink": {
-									"name": "dvdCountry"
+									"ordinal": 24
 								}
 							},
 							{
@@ -237,7 +237,7 @@
 									"path": "$['externals']['tvrage']"
 								},
 								"sink": {
-									"name": "tvrage"
+									"ordinal": 25
 								}
 							},
 							{
@@ -245,7 +245,7 @@
 									"path": "$['externals']['thetvdb']"
 								},
 								"sink": {
-									"name": "thetvdb"
+									"ordinal": 26
 								}
 							},
 							{
@@ -253,7 +253,7 @@
 									"path": "$['externals']['imdb']"
 								},
 								"sink": {
-									"name": "imdb"
+									"ordinal": 27
 								}
 							},
 							{
@@ -261,7 +261,7 @@
 									"path": "$['image']['medium']"
 								},
 								"sink": {
-									"name": "image_medium"
+									"ordinal": 28
 								}
 							},
 							{
@@ -269,7 +269,7 @@
 									"path": "$['image']['original']"
 								},
 								"sink": {
-									"name": "image_original"
+									"ordinal": 29
 								}
 							},
 							{
@@ -277,7 +277,7 @@
 									"path": "$['summary']"
 								},
 								"sink": {
-									"name": "summary"
+									"ordinal": 30
 								}
 							},
 							{
@@ -285,7 +285,7 @@
 									"path": "$['updated']"
 								},
 								"sink": {
-									"name": "updated"
+									"ordinal": 31
 								}
 							},
 							{
@@ -293,7 +293,7 @@
 									"path": "$['_links']['self']['href']"
 								},
 								"sink": {
-									"name": "_links_self_href"
+									"ordinal": 32
 								}
 							},
 							{
@@ -301,7 +301,7 @@
 									"path": "$['_links']['previousepisode']['href']"
 								},
 								"sink": {
-									"name": "_links_previousepisode_href"
+									"ordinal": 33
 								}
 							},
 							{
@@ -309,7 +309,7 @@
 									"path": "$['_links']['previousepisode']['name']"
 								},
 								"sink": {
-									"name": "_links_previousepisode_name"
+									"ordinal": 34
 								}
 							},
 							{
@@ -317,7 +317,7 @@
 									"path": "$['_embedded']['episodes'][0]['id']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['id"
+									"ordinal": 35
 								}
 							},
 							{
@@ -325,7 +325,7 @@
 									"path": "$['_embedded']['episodes'][0]['url']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['url"
+									"ordinal": 36
 								}
 							},
 							{
@@ -333,7 +333,7 @@
 									"path": "$['_embedded']['episodes'][0]['name']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['name"
+									"ordinal": 37
 								}
 							},
 							{
@@ -341,7 +341,7 @@
 									"path": "$['_embedded']['episodes'][0]['season']"
 								},
 								"sink": {
-									"name": "season"
+									"ordinal": 38
 								}
 							},
 							{
@@ -349,7 +349,7 @@
 									"path": "$['_embedded']['episodes'][0]['number']"
 								},
 								"sink": {
-									"name": "number"
+									"ordinal": 39
 								}
 							},
 							{
@@ -357,7 +357,7 @@
 									"path": "$['_embedded']['episodes'][0]['type']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['type"
+									"ordinal": 40
 								}
 							},
 							{
@@ -365,7 +365,7 @@
 									"path": "$['_embedded']['episodes'][0]['airdate']"
 								},
 								"sink": {
-									"name": "airdate"
+									"ordinal": 41
 								}
 							},
 							{
@@ -373,7 +373,7 @@
 									"path": "$['_embedded']['episodes'][0]['airtime']"
 								},
 								"sink": {
-									"name": "airtime"
+									"ordinal": 42
 								}
 							},
 							{
@@ -381,7 +381,7 @@
 									"path": "$['_embedded']['episodes'][0]['airstamp']"
 								},
 								"sink": {
-									"name": "airstamp"
+									"ordinal": 43
 								}
 							},
 							{
@@ -389,7 +389,7 @@
 									"path": "$['_embedded']['episodes'][0]['runtime']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['runtime"
+									"ordinal": 44
 								}
 							},
 							{
@@ -397,7 +397,7 @@
 									"path": "$['_embedded']['episodes'][0]['rating']['average']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['rating_average"
+									"ordinal": 45
 								}
 							},
 							{
@@ -405,7 +405,7 @@
 									"path": "$['_embedded']['episodes'][0]['image']['medium']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['image_medium"
+									"ordinal": 46
 								}
 							},
 							{
@@ -413,7 +413,7 @@
 									"path": "$['_embedded']['episodes'][0]['image']['original']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['image_original"
+									"ordinal": 47
 								}
 							},
 							{
@@ -421,7 +421,7 @@
 									"path": "$['_embedded']['episodes'][0]['summary']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['summary"
+									"ordinal": 48
 								}
 							},
 							{
@@ -429,7 +429,7 @@
 									"path": "$['_embedded']['episodes'][0]['_links']['self']['href']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['_links_self_href"
+									"ordinal": 49
 								}
 							},
 							{
@@ -437,7 +437,7 @@
 									"path": "$['_embedded']['episodes'][0]['_links']['show']['href']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['_links_show_href"
+									"ordinal": 50
 								}
 							},
 							{
@@ -445,7 +445,7 @@
 									"path": "$['_embedded']['episodes'][0]['_links']['show']['name']"
 								},
 								"sink": {
-									"name": "_embedded_episodes'][0]['_links_show_name"
+									"ordinal": 51
 								}
 							}
 						],
