@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "datafactoryadf17"
 		},
+		"adlsApiCsv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'adlsApiCsv'"
+		},
 		"ls_adf_test_data_perm_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adf_test_data_perm'"
@@ -23,9 +27,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_errors'"
 		},
-		"adlsApiCsv_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'adlsApiCsv'"
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones&embed=episodes"
+		},
+		"adlsApiCsv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
 		"apiRestTesting_properties_typeProperties_url": {
 			"type": "string",
@@ -40,10 +48,6 @@
 			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
 		"ls_adls_sink_service_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
-		},
-		"adlsApiCsv_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storageaccount17dl.dfs.core.windows.net/"
 		},
@@ -74,6 +78,9 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"adlsApiCsv_accountKey": {
+						"value": "[parameters('adlsApiCsv_accountKey')]"
+					},
 					"ls_adf_test_data_perm_accountKey": {
 						"value": "[parameters('ls_adf_test_data_perm_accountKey')]"
 					},
@@ -86,8 +93,11 @@
 					"ls_errors_connectionString": {
 						"value": "[parameters('ls_errors_connectionString')]"
 					},
-					"adlsApiCsv_accountKey": {
-						"value": "[parameters('adlsApiCsv_accountKey')]"
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"adlsApiCsv_properties_typeProperties_url": {
+						"value": "[parameters('adlsApiCsv_properties_typeProperties_url')]"
 					},
 					"apiRestTesting_properties_typeProperties_url": {
 						"value": "[parameters('apiRestTesting_properties_typeProperties_url')]"
@@ -100,9 +110,6 @@
 					},
 					"ls_adls_sink_service_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_sink_service_properties_typeProperties_url')]"
-					},
-					"adlsApiCsv_properties_typeProperties_url": {
-						"value": "[parameters('adlsApiCsv_properties_typeProperties_url')]"
 					}
 				}
 			},
