@@ -508,7 +508,8 @@
 											"name": "_embedded_episodes'][0]['_links_show_name"
 										}
 									}
-								]
+								],
+								"mapComplexValuesToString": true
 							}
 						},
 						"inputs": [
