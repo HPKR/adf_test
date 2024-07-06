@@ -29,7 +29,7 @@
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones&embed=episodes"
+			"defaultValue": "https://pokeapi.co/api/v2/pokemon/ditto"
 		},
 		"adlsApiCsv_properties_typeProperties_url": {
 			"type": "string",

@@ -21,7 +21,7 @@
 			"value": ""
 		},
 		"HttpServer1_properties_typeProperties_url": {
-			"value": "https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones&embed=episodes"
+			"value": "https://pokeapi.co/api/v2/pokemon/ditto"
 		},
 		"adlsApiCsv_properties_typeProperties_url": {
 			"value": "https://storageaccount17dl.dfs.core.windows.net/"
