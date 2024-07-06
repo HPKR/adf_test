@@ -43,7 +43,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['id']"
+									"path": "$['abilities'][0]['ability']['name']"
 								},
 								"sink": {
 									"ordinal": 1
@@ -51,7 +51,7 @@
 							},
 							{
 								"source": {
-									"path": "$['url']"
+									"path": "$['abilities'][0]['ability']['url']"
 								},
 								"sink": {
 									"ordinal": 2
@@ -59,7 +59,7 @@
 							},
 							{
 								"source": {
-									"path": "$['name']"
+									"path": "$['abilities'][0]['is_hidden']"
 								},
 								"sink": {
 									"ordinal": 3
@@ -67,7 +67,7 @@
 							},
 							{
 								"source": {
-									"path": "$['type']"
+									"path": "$['abilities'][0]['slot']"
 								},
 								"sink": {
 									"ordinal": 4
@@ -75,7 +75,7 @@
 							},
 							{
 								"source": {
-									"path": "$['language']"
+									"path": "$['base_experience']"
 								},
 								"sink": {
 									"ordinal": 5
@@ -83,7 +83,7 @@
 							},
 							{
 								"source": {
-									"path": "$['genres'][0]"
+									"path": "$['cries']['latest']"
 								},
 								"sink": {
 									"ordinal": 6
@@ -91,7 +91,7 @@
 							},
 							{
 								"source": {
-									"path": "$['status']"
+									"path": "$['cries']['legacy']"
 								},
 								"sink": {
 									"ordinal": 7
@@ -99,7 +99,7 @@
 							},
 							{
 								"source": {
-									"path": "$['runtime']"
+									"path": "$['forms'][0]['name']"
 								},
 								"sink": {
 									"ordinal": 8
@@ -107,7 +107,7 @@
 							},
 							{
 								"source": {
-									"path": "$['averageRuntime']"
+									"path": "$['forms'][0]['url']"
 								},
 								"sink": {
 									"ordinal": 9
@@ -115,7 +115,7 @@
 							},
 							{
 								"source": {
-									"path": "$['premiered']"
+									"path": "$['game_indices'][0]['game_index']"
 								},
 								"sink": {
 									"ordinal": 10
@@ -123,7 +123,7 @@
 							},
 							{
 								"source": {
-									"path": "$['ended']"
+									"path": "$['game_indices'][0]['version']['name']"
 								},
 								"sink": {
 									"ordinal": 11
@@ -131,7 +131,7 @@
 							},
 							{
 								"source": {
-									"path": "$['officialSite']"
+									"path": "$['game_indices'][0]['version']['url']"
 								},
 								"sink": {
 									"ordinal": 12
@@ -139,7 +139,7 @@
 							},
 							{
 								"source": {
-									"path": "$['schedule']['time']"
+									"path": "$['height']"
 								},
 								"sink": {
 									"ordinal": 13
@@ -147,7 +147,7 @@
 							},
 							{
 								"source": {
-									"path": "$['schedule']['days'][0]"
+									"path": "$['held_items'][0]['item']['name']"
 								},
 								"sink": {
 									"ordinal": 14
@@ -155,7 +155,7 @@
 							},
 							{
 								"source": {
-									"path": "$['rating']['average']"
+									"path": "$['held_items'][0]['item']['url']"
 								},
 								"sink": {
 									"ordinal": 15
@@ -163,7 +163,7 @@
 							},
 							{
 								"source": {
-									"path": "$['weight']"
+									"path": "$['held_items'][0]['version_details'][0]['rarity']"
 								},
 								"sink": {
 									"ordinal": 16
@@ -171,7 +171,7 @@
 							},
 							{
 								"source": {
-									"path": "$['network']['id']"
+									"path": "$['held_items'][0]['version_details'][0]['version']['name']"
 								},
 								"sink": {
 									"ordinal": 17
@@ -179,7 +179,7 @@
 							},
 							{
 								"source": {
-									"path": "$['network']['name']"
+									"path": "$['held_items'][0]['version_details'][0]['version']['url']"
 								},
 								"sink": {
 									"ordinal": 18
@@ -187,7 +187,7 @@
 							},
 							{
 								"source": {
-									"path": "$['network']['country']['name']"
+									"path": "$['id']"
 								},
 								"sink": {
 									"ordinal": 19
@@ -195,7 +195,7 @@
 							},
 							{
 								"source": {
-									"path": "$['network']['country']['code']"
+									"path": "$['is_default']"
 								},
 								"sink": {
 									"ordinal": 20
@@ -203,7 +203,7 @@
 							},
 							{
 								"source": {
-									"path": "$['network']['country']['timezone']"
+									"path": "$['location_area_encounters']"
 								},
 								"sink": {
 									"ordinal": 21
@@ -211,7 +211,7 @@
 							},
 							{
 								"source": {
-									"path": "$['network']['officialSite']"
+									"path": "$['moves'][0]['move']['name']"
 								},
 								"sink": {
 									"ordinal": 22
@@ -219,7 +219,7 @@
 							},
 							{
 								"source": {
-									"path": "$['webChannel']"
+									"path": "$['moves'][0]['move']['url']"
 								},
 								"sink": {
 									"ordinal": 23
@@ -227,7 +227,7 @@
 							},
 							{
 								"source": {
-									"path": "$['dvdCountry']"
+									"path": "$['moves'][0]['version_group_details'][0]['level_learned_at']"
 								},
 								"sink": {
 									"ordinal": 24
@@ -235,7 +235,7 @@
 							},
 							{
 								"source": {
-									"path": "$['externals']['tvrage']"
+									"path": "$['moves'][0]['version_group_details'][0]['move_learn_method']['name']"
 								},
 								"sink": {
 									"ordinal": 25
@@ -243,7 +243,7 @@
 							},
 							{
 								"source": {
-									"path": "$['externals']['thetvdb']"
+									"path": "$['moves'][0]['version_group_details'][0]['move_learn_method']['url']"
 								},
 								"sink": {
 									"ordinal": 26
@@ -251,7 +251,7 @@
 							},
 							{
 								"source": {
-									"path": "$['externals']['imdb']"
+									"path": "$['moves'][0]['version_group_details'][0]['version_group']['name']"
 								},
 								"sink": {
 									"ordinal": 27
@@ -259,7 +259,7 @@
 							},
 							{
 								"source": {
-									"path": "$['image']['medium']"
+									"path": "$['moves'][0]['version_group_details'][0]['version_group']['url']"
 								},
 								"sink": {
 									"ordinal": 28
@@ -267,7 +267,7 @@
 							},
 							{
 								"source": {
-									"path": "$['image']['original']"
+									"path": "$['name']"
 								},
 								"sink": {
 									"ordinal": 29
@@ -275,7 +275,7 @@
 							},
 							{
 								"source": {
-									"path": "$['summary']"
+									"path": "$['order']"
 								},
 								"sink": {
 									"ordinal": 30
@@ -283,7 +283,7 @@
 							},
 							{
 								"source": {
-									"path": "$['updated']"
+									"path": "$['past_abilities'][0]"
 								},
 								"sink": {
 									"ordinal": 31
@@ -291,7 +291,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_links']['self']['href']"
+									"path": "$['past_types'][0]"
 								},
 								"sink": {
 									"ordinal": 32
@@ -299,7 +299,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_links']['previousepisode']['href']"
+									"path": "$['species']['name']"
 								},
 								"sink": {
 									"ordinal": 33
@@ -307,7 +307,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_links']['previousepisode']['name']"
+									"path": "$['species']['url']"
 								},
 								"sink": {
 									"ordinal": 34
@@ -315,7 +315,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['id']"
+									"path": "$['sprites']['back_default']"
 								},
 								"sink": {
 									"ordinal": 35
@@ -323,7 +323,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['url']"
+									"path": "$['sprites']['back_female']"
 								},
 								"sink": {
 									"ordinal": 36
@@ -331,7 +331,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['name']"
+									"path": "$['sprites']['back_shiny']"
 								},
 								"sink": {
 									"ordinal": 37
@@ -339,7 +339,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['season']"
+									"path": "$['sprites']['back_shiny_female']"
 								},
 								"sink": {
 									"ordinal": 38
@@ -347,7 +347,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['number']"
+									"path": "$['sprites']['front_default']"
 								},
 								"sink": {
 									"ordinal": 39
@@ -355,7 +355,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['type']"
+									"path": "$['sprites']['front_female']"
 								},
 								"sink": {
 									"ordinal": 40
@@ -363,7 +363,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['airdate']"
+									"path": "$['sprites']['front_shiny']"
 								},
 								"sink": {
 									"ordinal": 41
@@ -371,7 +371,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['airtime']"
+									"path": "$['sprites']['front_shiny_female']"
 								},
 								"sink": {
 									"ordinal": 42
@@ -379,7 +379,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['airstamp']"
+									"path": "$['sprites']['other']['dream_world']['front_default']"
 								},
 								"sink": {
 									"ordinal": 43
@@ -387,7 +387,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['runtime']"
+									"path": "$['sprites']['other']['dream_world']['front_female']"
 								},
 								"sink": {
 									"ordinal": 44
@@ -395,7 +395,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['rating']['average']"
+									"path": "$['sprites']['other']['home']['front_default']"
 								},
 								"sink": {
 									"ordinal": 45
@@ -403,7 +403,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['image']['medium']"
+									"path": "$['sprites']['other']['home']['front_female']"
 								},
 								"sink": {
 									"ordinal": 46
@@ -411,7 +411,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['image']['original']"
+									"path": "$['sprites']['other']['home']['front_shiny']"
 								},
 								"sink": {
 									"ordinal": 47
@@ -419,7 +419,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['summary']"
+									"path": "$['sprites']['other']['home']['front_shiny_female']"
 								},
 								"sink": {
 									"ordinal": 48
@@ -427,7 +427,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['_links']['self']['href']"
+									"path": "$['sprites']['other']['official-artwork']['front_default']"
 								},
 								"sink": {
 									"ordinal": 49
@@ -435,7 +435,7 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['_links']['show']['href']"
+									"path": "$['sprites']['other']['official-artwork']['front_shiny']"
 								},
 								"sink": {
 									"ordinal": 50
@@ -443,10 +443,898 @@
 							},
 							{
 								"source": {
-									"path": "$['_embedded']['episodes'][0]['_links']['show']['name']"
+									"path": "$['sprites']['other']['showdown']['back_default']"
 								},
 								"sink": {
 									"ordinal": 51
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['back_female']"
+								},
+								"sink": {
+									"ordinal": 52
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 53
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['back_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 54
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['front_default']"
+								},
+								"sink": {
+									"ordinal": 55
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['front_female']"
+								},
+								"sink": {
+									"ordinal": 56
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 57
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['other']['showdown']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 58
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['red-blue']['back_default']"
+								},
+								"sink": {
+									"ordinal": 59
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['red-blue']['back_gray']"
+								},
+								"sink": {
+									"ordinal": 60
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['red-blue']['back_transparent']"
+								},
+								"sink": {
+									"ordinal": 61
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['red-blue']['front_default']"
+								},
+								"sink": {
+									"ordinal": 62
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['red-blue']['front_gray']"
+								},
+								"sink": {
+									"ordinal": 63
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['red-blue']['front_transparent']"
+								},
+								"sink": {
+									"ordinal": 64
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['yellow']['back_default']"
+								},
+								"sink": {
+									"ordinal": 65
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['yellow']['back_gray']"
+								},
+								"sink": {
+									"ordinal": 66
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['yellow']['back_transparent']"
+								},
+								"sink": {
+									"ordinal": 67
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['yellow']['front_default']"
+								},
+								"sink": {
+									"ordinal": 68
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['yellow']['front_gray']"
+								},
+								"sink": {
+									"ordinal": 69
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-i']['yellow']['front_transparent']"
+								},
+								"sink": {
+									"ordinal": 70
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['back_default']"
+								},
+								"sink": {
+									"ordinal": 71
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 72
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['back_shiny_transparent']"
+								},
+								"sink": {
+									"ordinal": 73
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['back_transparent']"
+								},
+								"sink": {
+									"ordinal": 74
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['front_default']"
+								},
+								"sink": {
+									"ordinal": 75
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 76
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['front_shiny_transparent']"
+								},
+								"sink": {
+									"ordinal": 77
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['crystal']['front_transparent']"
+								},
+								"sink": {
+									"ordinal": 78
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['gold']['back_default']"
+								},
+								"sink": {
+									"ordinal": 79
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['gold']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 80
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['gold']['front_default']"
+								},
+								"sink": {
+									"ordinal": 81
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['gold']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 82
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['gold']['front_transparent']"
+								},
+								"sink": {
+									"ordinal": 83
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['silver']['back_default']"
+								},
+								"sink": {
+									"ordinal": 84
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['silver']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 85
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['silver']['front_default']"
+								},
+								"sink": {
+									"ordinal": 86
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['silver']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 87
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-ii']['silver']['front_transparent']"
+								},
+								"sink": {
+									"ordinal": 88
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['emerald']['front_default']"
+								},
+								"sink": {
+									"ordinal": 89
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['emerald']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 90
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['firered-leafgreen']['back_default']"
+								},
+								"sink": {
+									"ordinal": 91
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['firered-leafgreen']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 92
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['firered-leafgreen']['front_default']"
+								},
+								"sink": {
+									"ordinal": 93
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['firered-leafgreen']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 94
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['ruby-sapphire']['back_default']"
+								},
+								"sink": {
+									"ordinal": 95
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['ruby-sapphire']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 96
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['ruby-sapphire']['front_default']"
+								},
+								"sink": {
+									"ordinal": 97
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iii']['ruby-sapphire']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 98
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['back_default']"
+								},
+								"sink": {
+									"ordinal": 99
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['back_female']"
+								},
+								"sink": {
+									"ordinal": 100
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 101
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['back_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 102
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['front_default']"
+								},
+								"sink": {
+									"ordinal": 103
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['front_female']"
+								},
+								"sink": {
+									"ordinal": 104
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 105
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['diamond-pearl']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 106
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['back_default']"
+								},
+								"sink": {
+									"ordinal": 107
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['back_female']"
+								},
+								"sink": {
+									"ordinal": 108
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 109
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['back_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 110
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['front_default']"
+								},
+								"sink": {
+									"ordinal": 111
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['front_female']"
+								},
+								"sink": {
+									"ordinal": 112
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 113
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['heartgold-soulsilver']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 114
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['back_default']"
+								},
+								"sink": {
+									"ordinal": 115
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['back_female']"
+								},
+								"sink": {
+									"ordinal": 116
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 117
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['back_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 118
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['front_default']"
+								},
+								"sink": {
+									"ordinal": 119
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['front_female']"
+								},
+								"sink": {
+									"ordinal": 120
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 121
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-iv']['platinum']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 122
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['back_default']"
+								},
+								"sink": {
+									"ordinal": 123
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['back_female']"
+								},
+								"sink": {
+									"ordinal": 124
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 125
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['back_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 126
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['front_default']"
+								},
+								"sink": {
+									"ordinal": 127
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['front_female']"
+								},
+								"sink": {
+									"ordinal": 128
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 129
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['animated']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 130
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['back_default']"
+								},
+								"sink": {
+									"ordinal": 131
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['back_female']"
+								},
+								"sink": {
+									"ordinal": 132
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['back_shiny']"
+								},
+								"sink": {
+									"ordinal": 133
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['back_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 134
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['front_default']"
+								},
+								"sink": {
+									"ordinal": 135
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['front_female']"
+								},
+								"sink": {
+									"ordinal": 136
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 137
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-v']['black-white']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 138
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['omegaruby-alphasapphire']['front_default']"
+								},
+								"sink": {
+									"ordinal": 139
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['omegaruby-alphasapphire']['front_female']"
+								},
+								"sink": {
+									"ordinal": 140
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['omegaruby-alphasapphire']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 141
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['omegaruby-alphasapphire']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 142
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['x-y']['front_default']"
+								},
+								"sink": {
+									"ordinal": 143
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['x-y']['front_female']"
+								},
+								"sink": {
+									"ordinal": 144
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['x-y']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 145
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vi']['x-y']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 146
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vii']['icons']['front_default']"
+								},
+								"sink": {
+									"ordinal": 147
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vii']['icons']['front_female']"
+								},
+								"sink": {
+									"ordinal": 148
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vii']['ultra-sun-ultra-moon']['front_default']"
+								},
+								"sink": {
+									"ordinal": 149
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vii']['ultra-sun-ultra-moon']['front_female']"
+								},
+								"sink": {
+									"ordinal": 150
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vii']['ultra-sun-ultra-moon']['front_shiny']"
+								},
+								"sink": {
+									"ordinal": 151
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-vii']['ultra-sun-ultra-moon']['front_shiny_female']"
+								},
+								"sink": {
+									"ordinal": 152
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-viii']['icons']['front_default']"
+								},
+								"sink": {
+									"ordinal": 153
+								}
+							},
+							{
+								"source": {
+									"path": "$['sprites']['versions']['generation-viii']['icons']['front_female']"
+								},
+								"sink": {
+									"ordinal": 154
+								}
+							},
+							{
+								"source": {
+									"path": "$['stats'][0]['base_stat']"
+								},
+								"sink": {
+									"ordinal": 155
+								}
+							},
+							{
+								"source": {
+									"path": "$['stats'][0]['effort']"
+								},
+								"sink": {
+									"ordinal": 156
+								}
+							},
+							{
+								"source": {
+									"path": "$['stats'][0]['stat']['name']"
+								},
+								"sink": {
+									"ordinal": 157
+								}
+							},
+							{
+								"source": {
+									"path": "$['stats'][0]['stat']['url']"
+								},
+								"sink": {
+									"ordinal": 158
+								}
+							},
+							{
+								"source": {
+									"path": "$['types'][0]['slot']"
+								},
+								"sink": {
+									"ordinal": 159
+								}
+							},
+							{
+								"source": {
+									"path": "$['types'][0]['type']['name']"
+								},
+								"sink": {
+									"ordinal": 160
+								}
+							},
+							{
+								"source": {
+									"path": "$['types'][0]['type']['url']"
+								},
+								"sink": {
+									"ordinal": 161
+								}
+							},
+							{
+								"source": {
+									"path": "$['weight']"
+								},
+								"sink": {
+									"ordinal": 162
 								}
 							}
 						],
